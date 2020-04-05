@@ -305,6 +305,7 @@ LDFLAGS += -ffunction-sections -Wl,--gc-sections
 #AVRDUDE_PROGRAMMER = avr910
 # com1 = serial port. Use lpt1 to connect to parallel port.
 #AVRDUDE_PORT = usb
+AVRDUDE_PROGRAMMER = avrispmkII
 
 AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
 AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep

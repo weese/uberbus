@@ -8,7 +8,7 @@
 
 #define UB_MAXMULTICAST 8
 
-#define UB_INITIALNODENAME  "newnode,example.com"
+#define UB_INITIALNODENAME  "newnode.example.com"
 typedef uint8_t ubaddress_t;
 #define UB_NODEMAX      128
 
@@ -26,6 +26,15 @@ typedef uint8_t ubaddress_t;
 #define UB_DISCOVER     '3'
 #define UB_QUERY        '4'
 #define UB_BOOTLOADER   '5'
+
+#define TXLED
+#define TXLED_PORT  A
+#define TXLED_PIN   4
+
+#define RXLED
+#define RXLED_PORT  A
+#define RXLED_PIN   5
+
 
 #ifdef BOARD_DEVBOARD
 

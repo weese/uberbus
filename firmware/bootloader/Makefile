@@ -15,6 +15,8 @@ CFLAGS  += -DBOOTLOADER_CHAR
 # include avr-generic makefile configuration
 include avr.mk
 
+AVRDUDE_FLAGS += -c avrispmkII
+
 # bootloader section start
 # (see datasheet)
 ifeq ($(MCU),atmega8)

@@ -76,15 +76,18 @@ void settings_read(void)
 #if STATIC_SCRIPTS
         script_threads[0].speed_adjustment = 0;
         script_threads[0].handler.execute = &memory_handler_flash;
-        script_threads[0].handler.position = (uint16_t)(&colorchange_red);
+        script_threads[0].handler.position = (uint16_t)(&fadeOn);
         script_threads[0].flags.disabled = 0;
 
         //script_threads[2].handler.execute = &memory_handler_eeprom;
         //script_threads[2].handler.position = (uint16_t) &testscript_eeprom;
         //script_threads[2].flags.disabled = 0;
 #endif
-        global_pwm.channels[0].brightness = 250;
-        global_pwm.channels[0].target_brightness = 250;
+        // uint8_t i;
+        // for (i = 0; i < 3; ++i) {
+        //     global_pwm.channels[i].speed = 0x0c00;
+        //     global_pwm.channels[i].target_brightness = 255;
+        // }
         global.flags.running = 1;
         global.state = STATE_RUNNING;
         global.flags.rawmode = 0;

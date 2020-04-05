@@ -75,7 +75,7 @@ uint8_t ubslavemgt_process(struct ubpacket_t * p)
 void ubslavemgt_tick(void)
 {
     struct ubpacket_t * p;
-    static uint16_t time = 0;
+    static uint16_t time = 40;
     if(!time--){
         time = 10000;
     }

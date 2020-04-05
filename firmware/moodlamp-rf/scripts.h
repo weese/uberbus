@@ -198,6 +198,23 @@ static const uint8_t blinken[] PROGMEM = {
     MACRO_SLEEP(125),
     MACRO_JUMP(-24)
     };
+
+static const uint8_t fadeOn[] PROGMEM = {
+    MACRO_FADE_CHANNEL(CHANNEL_RED, 255, 0xc00),
+    MACRO_FADE_CHANNEL(CHANNEL_GREEN, 255, 0xc00),
+    MACRO_FADE_CHANNEL(CHANNEL_BLUE, 100, 0xc00),
+    MACRO_SLEEP(1),
+    MACRO_JUMP(-1),
+    };
+
+static const uint8_t fadeOff[] PROGMEM = {
+    MACRO_FADE_CHANNEL(CHANNEL_RED, 0, 0xc00),
+    MACRO_FADE_CHANNEL(CHANNEL_GREEN, 0, 0xc00),
+    MACRO_FADE_CHANNEL(CHANNEL_BLUE, 0, 0xc00),
+    MACRO_SLEEP(1),
+    MACRO_JUMP(-1),
+    };
+
 static const struct playlist_t global_playlist[] = {
     {&memory_handler_flash, (uint16_t) &green_flash},
     {&memory_handler_flash, (uint16_t) &blinken},
@@ -207,6 +224,8 @@ static const struct playlist_t global_playlist[] = {
     {&memory_handler_flash, (uint16_t) &green_blink},
     {&memory_handler_flash, (uint16_t) &police},
     {&memory_handler_flash, (uint16_t) &red_blink},
-    {&memory_handler_flash, (uint16_t) &off}
+    {&memory_handler_flash, (uint16_t) &off},
+    {&memory_handler_flash, (uint16_t) &fadeOn},
+    {&memory_handler_flash, (uint16_t) &fadeOff}
 };
 #endif

@@ -28,7 +28,7 @@ void ubrf_init(void)
     ubleds_rx();
     ubrf_state = UBRF_IDLE;
     ubrf12_init(RF_CHANNEL);
-    ubrf12_setfreq(RF12FREQ(434.32));
+    ubrf12_setfreq(RF12FREQ(434.318));
     ubrf12_setbandwidth(4, 1, 4);     // 200kHz Bandbreite,
     //-6dB Verstärkung, DRSSI threshold: -79dBm
     ubrf12_setbaud(19200);

@@ -95,11 +95,12 @@ void ubrf12_init(unsigned char channel)
     RESET_PORT |= (1<<RESET);
     _delay_ms(10);
     RESET_PORT &= ~(1<<RESET);
-    for(j=0;j<900000;j++)
-        wdt_reset();
+    // for(j=0;j<900000;j++)
+    //     wdt_reset();
+    _delay_ms(20);
     RESET_PORT |= (1<<RESET);
 #endif
-    for (i=0; i<100; i++){
+    for (i=0; i<20; i++){
         _delay_ms(10);			// wait until POR done
         wdt_reset();
     }

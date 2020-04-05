@@ -8,14 +8,12 @@ class SerialInterface:
       self.portopen = False
       while not self.portopen:
         try:
-            self.ser = serial.Serial(path2device, baudrate)
+            self.ser = serial.Serial(path2device, baudrate, timeout=timeout+1)
             self.path2device = path2device
             self.baudrate = baudrate
             self.timeout = timeout+1
             self.ser.flushInput()
             self.ser.flushOutput()
-            if timeout:
-                self.ser.setTimeout(timeout+1)
             self.portopen = True
         except serial.SerialException:
             print "exception while opening"
@@ -32,7 +30,7 @@ class SerialInterface:
         self.close()
         print "reopening"
         while not self.portopen:
-            self.__init__(self.path2device, self.baudrate, self.timeout)
+            self.__init__(self.path2device, self.baudrate, timeout=self.timeout)
             time.sleep(1)
         print "done"
 
